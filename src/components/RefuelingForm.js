@@ -1,12 +1,17 @@
+// Import the necessary modules
 import React, { useState } from "react";
 
+// RefuelingForm component definition, receiving onAddRefuelingExpense function as a prop
 const RefuelingForm = ({ onAddRefuelingExpense }) => {
+  // Declare state for form inputs using useState hooks
   const [name, setName] = useState("");
   const [liters, setLiters] = useState("");
   const [price, setPrice] = useState("");
   const [distance, setDistance] = useState("");
 
+  // Function to add a refueling expense using the input values
   const addRefuelingExpense = () => {
+    // Create a new refueling object with the input values
     const newRefueling = {
       id: new Date().getTime(),
       name,
@@ -14,13 +19,18 @@ const RefuelingForm = ({ onAddRefuelingExpense }) => {
       price: parseFloat(price),
       distance: parseFloat(distance),
     };
+
+    // Call the onAddRefuelingExpense function (received as a prop) with the new refueling object
     onAddRefuelingExpense(newRefueling);
+
+    // Reset the input fields to their initial state
     setName("");
     setLiters("");
     setPrice("");
     setDistance("");
   };
 
+  // Render the form with input fields and a button to add a refueling expense
   return (
     <div>
       <input
@@ -47,9 +57,12 @@ const RefuelingForm = ({ onAddRefuelingExpense }) => {
         onChange={(e) => setDistance(e.target.value)}
         placeholder="Distance"
       />
+      // Button to trigger the addRefuelingExpense function
       <button onClick={addRefuelingExpense}>Add Refueling Expense</button>
     </div>
   );
 };
 
+// Export the RefuelingForm component as the default export
 export default RefuelingForm;
+
