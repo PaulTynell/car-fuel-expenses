@@ -18,11 +18,8 @@ function App() {
   return (
     <div className="App">
       <h1>Car Fuel Expenses</h1>
-      // Render the RefuelingForm component and pass the addRefuelingExpense function as a prop
       <RefuelingForm onAddRefuelingExpense={addRefuelingExpense} />
-      // Render the RefuelingList component and pass the refueling list as a prop
       <RefuelingList refuelingList={refuelingList} />
-      // Render the RefuelingStats component and pass the refueling list as a prop
       <RefuelingStats refuelingList={refuelingList} />
     </div>
   );
