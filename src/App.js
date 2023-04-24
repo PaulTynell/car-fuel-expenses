@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./app.css";
+import RefuelingForm from "./components/RefuelingForm";
+import RefuelingList from "./components/RefuelingList";
+import RefuelingStats from "./components/RefuelingStats";
 
 function App() {
+  const [refuelingList, setRefuelingList] = useState([]);
+
+  const addRefuelingExpense = (newRefueling) => {
+    setRefuelingList([...refuelingList, newRefueling]);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Car Fuel Expenses</h1>
+      <RefuelingForm onAddRefuelingExpense={addRefuelingExpense} />
+      <RefuelingList refuelingList={refuelingList} />
+      <RefuelingStats refuelingList={refuelingList} />
     </div>
   );
 }
