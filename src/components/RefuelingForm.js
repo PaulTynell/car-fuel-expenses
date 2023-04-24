@@ -57,7 +57,7 @@ const RefuelingForm = ({ onAddRefuelingExpense }) => {
         onChange={(e) => setDistance(e.target.value)}
         placeholder="Distance"
       />
-      // Button to trigger the addRefuelingExpense function
+      
       <button onClick={addRefuelingExpense}>Add Refueling Expense</button>
     </div>
   );
